@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historical Places in India</title>
+    <style>
+        *{
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        .logo{
+            width: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo img{
+            width: 15px;
+        }
+        .navbar{
+            display:flex ;
+            justify-content: center;
+            align-items: center;
+            position: sticky;
+            cursor: pointer;
+            top: 0;
+            z-index: 1000;
+            flex-shrink: 0;
+        }
+        .navlist{
+            width: 70%;
+            display: flex;
+            align-items: center;
+        }
+        .navlist li{
+            list-style: none;
+            padding: 25px 35px;
+        }
+        .navlist li a{
+            text-decoration: none;
+            color: aliceblue;
+            font-family: Tahoma, sans-serif;
+        }
+        .navlist li a:hover{
+            color: rgb(157, 199, 214);
+        }
+        .rightnav{
+            text-align: right;
+            width: 30%;
+            padding: 0 20px;
+            /* background-color: chartreuse; */
+        }
+        #search{
+            padding: 2px;
+            font-size: 15px;
+            border: 2px solid grey;
+            border-radius: 10px;
+        }
+        .background{
+            background-color: rgba(0, 0, 0, 0.7);
+            background-image: url('https://greenwoodhigh.edu.in/wp-content/uploads/2024/01/image-97.png.webp');
+            background-size: cover;
+            background-blend-mode: darken;
+        }
+        .box-main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(176, 195, 220);
+            color: aliceblue;
+            font-family: Georgia, serif;
+            max-width: 50%;
+            margin: auto;
+            padding: 50px;
+            height: 50%;
+        }
+        .firstsec{
+            height: 100vh;
+        }
+        .firsthalf{
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .secondhalf{
+            width: 30%;
+        }
+        .secondhalf img{
+            width: 70%;
+            border: 2px solid aliceblue;
+            border-radius: 10%;
+            display: block;
+            margin: auto;
+            /* margin-left: 120px; */
+            box-shadow: 0px 0px 10px rgb(0, 0, 0);
+        }
+        .big-text{
+            font-size: 27px;
+            font-weight: bold;
+        }
+        .small-text{
+            font-size: 15px;
+            font-family: Tahoma, sans-serif;
+            margin-top: 5px;
+        }
+        .btn{
+            background: none;
+            border: 2px solid white;
+            color: aliceblue;
+            border-radius: 10px;
+            padding: 5px 13px;
+            cursor: pointer;
+            font-family: Tahoma, sans-serif;
+            font-size: 13px;
+        }
+        .content{
+            display: flex;
+            justify-content:space-evenly;
+            align-items: center;
+            max-width: 80%;
+            margin: auto;
+            padding: 10px;
+        }
+        .para{
+            padding: 53px;
+        }
+        .left{
+            flex-direction: row-reverse;
+        }
+        .thumbnail img{
+           max-width: 100%;
+            border: 2px solid none;
+            border-radius: 5%;
+            /* margin-top: 20px; */
+            box-shadow: 0px 0px 10px;
+        }
+        .main{
+            padding: 10px 0px;
+        }
+        details{
+            margin-top: 5px;
+        }
+        summary{
+            font-weight: bold;
+            color: rgb(0, 89, 255);
+            list-style: none;
+            cursor: pointer;
+        }
+        summary:hover{
+            text-decoration: underline;
+            text-decoration-color: rgb(0, 89, 255);
+        }
+        details[open] summary{
+            display: none;
+        }
+        .para2{
+            position: relative;
+            bottom: 10px;
+        }
+        .contact{
+            background-color: #f5f3f2;
+            height: 350px;
+        }
+        .text{
+            text-align: center;
+            font-family: Georgia, serif;
+            padding: 20px;
+            font-size: 35px;
+        }
+        .form{
+            max-width: 62%;
+            margin:  25px auto;
+        }
+        .form input{
+            width: 100%;
+            font-size: 15px;
+            font-family: Tahoma, sans-serif;
+            border: 2px solid grey;
+            border-radius: 5px;
+            margin: 15px 0px;
+            padding: 5px 5px;
+        }
+        .btn-submit{
+            color: black;
+            border: 2px solid grey;
+            border-radius: 12px;
+            font-size: 10px;
+        }
+        footer{
+            background-color: black;
+        }
+        .foot1{
+            color: aliceblue;
+            font-size: 25px;
+            padding: 20px;
+            font-family: Georgia, serif;
+            display: flex;
+            justify-content: center;
+        }
+        .foot2{
+            color: aliceblue;
+            font-size: 15px;
+            display: flex;
+            justify-content: center;
+            padding: 5px 0px;
+            font-family: Tahoma, serif;
+        }
+        .burger{
+            display: none;
+            position: absolute;
+            cursor: pointer;
+            right: 10px;
+            top: 15px;
+        }
+        .line{
+            width: 30px;
+            background-color: white;
+            height: 3px;
+            margin: 5px 3px; 
+        }
+        @media only screen and (max-width: 962px){
+            .navlist{
+                flex-direction: column;
+            }
+            .navbar{
+                flex-direction: column;
+                height: 350px;
+                transition: all 0.5s ease-out;
+            }
+            .rightnav{
+                text-align: center;
+            }
+            .btn{
+                margin: 10px 0px;
+            }
+            #search{
+                width: 100%;
+            }
+            .burger{
+                display: block;
+            }
+            .hnav-resp{
+                height: 72px;
+            }
+            .vclass-resp{
+                opacity: 0;
+            }
+            .box-main{
+                max-width: 100%;
+                flex-direction: column-reverse;
+            }
+            .content{
+                flex-direction: column-reverse;
+            }
+            .big-text{
+                text-align: center;
+            }
+            .small.text{
+                text-align: center;
+            }
+            .para{
+                padding: 0px;
+            }
+            .foot1{
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body id="home">
+    <nav class="navbar background hnav-resp">
+        <ul class="navlist vclass-resp">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#landmarks">LANDMARKS</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#contact">CONTACT US</a></li>
+        </ul>
+        <div class="rightnav vclass-resp">
+            <input type="text" name="search" id="search">
+            <button class="btn">Search</button>
+        </div>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+    <section class="background firstsec" id="about">
+        <div class="box-main">
+            <div class="firsthalf">
+                <p class="big-text">"India: Where Every Monument Tells a Story"</p>
+                <p class="small-text">Journey through India's iconic landmarks, from ancient forts to majestic palaces. Uncover the stories behind each site and experience the vibrant history that shapes this incredible country.</p>
+            </div>
+            <div class="secondhalf">
+                <img src="https://allholyplaces.com/wp-content/uploads/2018/01/amritsar-to-delhi-taxi-service.png" alt="monuments" width="150px">
+            </div>
+        </div>
+    </section> 
+    <section class="content" id="landmarks">
+        <div class="para">
+            <p class="main big-text">1. Taj Mahal</p>
+            <p class="para1 small-text">The Taj Mahal, a breathtaking masterpiece of Mughal architecture, stands as a testament to eternal love and architectural brilliance. Commissioned by the Mughal Emperor Shah Jahan in 1631, this ivory-white marble mausoleum was built to honor his beloved wife, Mumtaz Mahal.</p>
+            <details>
+                <summary>Read more</summary>
+                <p class="para2 small-text ">
+                <br>Situated on the banks of the Yamuna River in Agra, India, the Taj Mahal is a stunning example of Indo-Persian architectural style. Its symmetrical design, intricate marble inlay work, and magnificent domes create a mesmerizing spectacle. The main mausoleum, with its iconic central dome, houses the tombs of Shah Jahan and Mumtaz Mahal. Surrounding the main structure are lush gardens, a mosque, and a guest house, all harmoniously blending with the overall design.<br><br>The construction of the Taj Mahal was a monumental task, involving thousands of skilled artisans and craftsmen. Over 20 years, precious materials like marble, gemstones, and semi-precious stones were meticulously carved and inlaid to create intricate patterns and designs. The Taj Mahal's enduring beauty and its unique blend of architectural styles have captivated millions of visitors from around the world. It is a symbol of India's rich cultural heritage and a UNESCO World Heritage Site, recognized for its outstanding universal value.</p>
+            </details>
+        </div>
+        <div class="thumbnail">
+            <img src="https://static.tripzilla.in/media/50209/conversions/ccfab81b-bde6-41b6-8182-d47311a0c235-w768.webp" alt="taj mahal"class="imgfluid">
+        </div>
+    </section>
+    <section class="content left">
+        <div class="para">
+            <p class="main big-text">2. Red Fort</p>
+            <p class="para1 small-text">The Red Fort, or Lal Qila, is a historic fort in Delhi, India, and one of the most important symbols of India’s heritage. Constructed in 1639 by the Mughal Emperor Shah Jahan, this imposing red sandstone fortress served as the main residence of the Mughal emperors for nearly 200 years. Known for its distinctive red walls, the fort is an architectural marvel that combines Islamic, Persian, Timurid, and Indian styles.</p>
+                <details>
+                    <summary>Read more</summary>
+                    <p class="para2 small-text">
+                <br>Inside, visitors can explore a range of splendid structures, including the Diwan-i-Aam (Hall of Public Audience), Diwan-i-Khas (Hall of Private Audience), and the Mumtaz Mahal. Each of these halls reflects the grandeur of Mughal architecture with intricate carvings, marble inlays, and delicate floral patterns. The Red Fort is not only a symbol of the Mughal Empire’s opulence but also a monument of Indian independence. Every year, on India’s Independence Day, the Prime Minister hoists the national flag here, celebrating India’s freedom and resilience.<br><br>The Red Fort holds immense historical significance, as it was the site of several important events, including the Indian Independence Day celebrations in 1947, when Prime Minister Jawaharlal Nehru famously unfurled the Indian flag from its ramparts. Today, the Red Fort is a UNESCO World Heritage Site and one of the most popular tourist attractions in India, offering visitors a glimpse into the grandeur of the Mughal era.</p>
+                </details>
+        </div>
+        <div class="thumbnail">
+            <img src="https://static.tripzilla.in/media/50210/conversions/4a8d3fe9-932a-495a-9eea-e2be3003f98a-w768.webp" alt="red fort"class="imgfluid">
+        </div>
+    </section>
+    <section class="content">
+        <div class="para">
+            <p class="main big-text">3. Qutub Minar</p>
+            <p class="para1 small-text">The Qutub Minar, a towering testament to India's rich history, stands as a symbol of the Delhi Sultanate's power and Islamic influence. This magnificent minaret, constructed primarily of red sandstone, rises to a height of 72.5 meters, making it the tallest brick minaret in the world. Its construction began in 1199 under the reign of Qutb-ud-din Aibak and was completed by his successor, Iltutmish.</p>
+            <details>
+                <summary>Read more</summary>
+                <p class="para2 small-text">
+                <br>The Qutub Minar is more than just a marvel of architecture; it is a historical landmark that reflects the fusion of Hindu and Islamic cultures. The minaret is adorned with intricate carvings and inscriptions, showcasing the artistic and calligraphic skills of the time. Its five distinct stories, each with its own unique architectural style, offer a glimpse into the evolution of Indo-Islamic architecture.<br><br>Today, the Qutub Minar stands as a UNESCO World Heritage Site, attracting visitors from around the globe. Its imposing presence and rich historical legacy continue to inspire awe and wonder in all who behold it.</p>
+            </details>
+        </div>
+        <div class="thumbnail">
+            <img src="https://static.tripzilla.in/media/50225/conversions/0c2f2a1e-564d-4d51-a82a-6fdbd4ac4dc0-w768.webp" alt="Qutub Minar"class="imgfluid">
+        </div>
+    </section>
+    <section class="content left">
+        <div class="para">
+            <p class="main big-text">4. India Gate</p>
+            <p class="para1 small-text">The India Gate, a majestic war memorial, stands as a poignant tribute to the Indian soldiers who laid down their lives during World War I and the Third Anglo-Afghan War. This iconic monument, located in New Delhi, was designed by the renowned architect Edwin Lutyens and was completed in 1931.</p>
+                <details>
+                    <summary>Read more</summary>
+                    <p class="para2 small-text">
+                <br>The India Gate, with its imposing archway and serene surroundings, serves as a solemn reminder of the sacrifices made by countless brave soldiers. The names of over 13,500 soldiers are inscribed on the gate, honoring their courage and valor.<br><br>Beyond its historical significance, the India Gate has become a symbol of national pride and a popular tourist destination. The eternal flame, known as the Amar Jawan Jyoti, burns perpetually beneath the arch, honoring the martyrs of the 1971 Indo-Pakistani War. The India Gate, with its grandeur and solemnity, continues to inspire generations and evoke a sense of patriotism and remembrance.</p>
+                </details>
+        </div>
+        <div class="thumbnail">
+            <img src="https://static.tripzilla.in/media/50211/conversions/a311ad3b-7bd1-4653-9696-b42e9f2df1a3-w768.webp" alt="red fort"class="imgfluid">
+        </div>
+    </section>
+    <section class="content">
+        <div class="para">
+            <p class="main big-text">5. Mysore Palace</p>
+            <p class="para1 small-text">The Mysore Palace, also known as Amba Vilas Palace, is a magnificent architectural marvel and a symbol of the rich cultural heritage of Mysore. Located in the heart of Mysore city, Karnataka, India, this palace was the official residence of the Wadiyar dynasty, the rulers of the Kingdom of Mysore.</p>
+            <details>
+                <summary>Read more</summary>
+                <p class="para2 small-text ">
+                <br>The current palace, built between 1897 and 1912, is a stunning example of Indo-Saracenic architecture. Its majestic domes, intricate carvings, and colorful mosaic tiles create a breathtaking sight. The palace complex houses numerous halls, including the Durbar Hall, which was used for royal ceremonies and receptions, and the Kalyanamantapa, the marriage hall.<br><br>The Mysore Palace is renowned for its grandeur and its association with the famous Dasara festival. During this festival, the palace is illuminated with thousands of lights, creating a mesmerizing spectacle. Visitors can explore the palace's opulent interiors, admire its exquisite artwork, and witness the grandeur of the bygone era.</p>
+            </details>
+        </div>
+        <div class="thumbnail">
+            <img src="https://static.tripzilla.in/media/50213/conversions/96e4cdab-00cd-4c80-8be3-9b2846e56a13-w768.webp" alt="taj mahal"class="imgfluid">
+        </div>
+    </section>
+    <section class="content left">
+        <div class="para">
+            <p class="main big-text">6. Lotus Temple</p>
+            <p class="para1 small-text">The Lotus Temple, a magnificent Bahá'í House of Worship, stands as a symbol of unity and peace. Located in New Delhi, India, this iconic structure is renowned for its stunning lotus-shaped design.</p>
+                <details>
+                    <summary>Read more</summary>
+                    <p class="para2 small-text">
+                <br>Constructed primarily of white marble, the temple features 27 independent petals arranged in clusters of three to form nine sides. Each petal serves as an entrance to the central hall, which can accommodate up to 1,300 people. The temple's serene and welcoming atmosphere invites people of all faiths to come together and meditate or pray.The Lotus Temple is not only a place of worship but also a remarkable architectural feat. Its unique design, inspired by the Indian lotus flower, has garnered international acclaim.<br><br>As a symbol of unity and tolerance, the Lotus Temple welcomes people from all backgrounds, regardless of their religious beliefs. It stands as a testament to the power of spirituality and the importance of fostering harmonious relationships among people of different faiths.</p>
+                </details>
+        </div>
+        <div class="thumbnail">
+            <img src="https://static.tripzilla.in/media/35866/conversions/2a39fd8f-a1f5-4c19-ad6e-ac1be91a3a15-w768.webp" alt="red fort"class="imgfluid">
+        </div>
+    </section>
+    <section class="content">
+        <div class="para">
+            <p class="main big-text">7. Jama Masjid</p>
+            <p class="para1 small-text">The Jama Masjid, located in Old Delhi, India, is one of the largest and most prominent mosques in India. Commissioned by the Mughal Emperor Shah Jahan in 1644 and completed in 1656, it stands as a testament to the grandeur and architectural prowess of the Mughal era.</p>
+            <details>
+                <summary>Read more</summary>
+                <p class="para2 small-text ">
+                <br>The mosque's imposing red sandstone and white marble structure is adorned with intricate carvings and decorative motifs. Its vast courtyard, capable of accommodating thousands of worshippers, creates a sense of awe and spirituality. The Jama Masjid is not only a place of worship but also a significant historical landmark, reflecting the rich cultural heritage of India.<br><br>The mosque's architecture is a blend of Islamic and Indian styles, showcasing the harmonious fusion of different cultures. The two minarets, rising high above the courtyard, are iconic symbols of the mosque and offer panoramic views of the city. The Jama Masjid continues to be an important religious and cultural center, attracting visitors from around the world who come to admire its beauty and experience its spiritual significance.</p>
+            </details>
+        </div>
+        <div class="thumbnail">
+            <img src="https://static.tripzilla.in/media/35865/conversions/63a6e15d-6111-48a8-9eac-a59c09763d62-w768.webp" alt="taj mahal"class="imgfluid">
+        </div>
+    </section>
+    <section class="content left">
+        <div class="para">
+            <p class="main big-text">8. Mehrangarh Fort</p>
+            <p class="para1 small-text">The Mehrangarh Fort, a majestic hilltop fortress in Jodhpur, Rajasthan, stands as a testament to the grandeur and resilience of the Rajput era. Built in 1459 by Rao Jodha, a Rathore Rajput ruler, this imposing structure dominates the city skyline and offers breathtaking views of the surrounding landscape.</p>
+                <details>
+                    <summary>Read more</summary>
+                    <p class="para2 small-text">
+                <br>One of the most striking features of Mehrangarh Fort is its seven imposing gates, each with its own unique history and significance. The Jai Pol, built to commemorate a victory over the armies of Jaipur and Bikaner, is perhaps the most famous of these gates. It is adorned with intricate carvings depicting scenes from battles and royal processions.<br><br>Mehrangarh Fort is not only a historical landmark but also a cultural treasure trove. Its museums house a fascinating collection of artifacts, including royal costumes, weapons, and paintings. Visitors can explore the fort's various palaces and courtyards, gaining insights into the lives of the Rajput rulers and their opulent lifestyle.</p>
+                </details>
+        </div>
+        <div class="thumbnail">
+            <img src="https://static.tripzilla.in/media/50212/conversions/67b07849-8eb8-4d7d-b8fa-9ced25224731-w768.webp" alt="red fort"class="imgfluid">
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <h1 class="text">Contact us</h1>
+        <div class="form">
+            <input type="text" name="name" id="name" placeholder="Enter your name">
+            <input type="text" name="phone" id="phone" placeholder="Enter your phone">
+            <input type="text" name="email" id="email" placeholder="Enter your email">
+            <button class=" btn btn-submit">Submit</button>
+        </div>   
+    </section>
+    <footer>
+        <p class="foot1">
+            Designed and Developed by Arafath Shaik
+        </p>
+        <p class="foot2">
+        Copyright &copy; 2024 - All rights reserved
+        </p>
+    </footer>
+    <script>
+        burger=document.querySelector('.burger')
+        navbar=document.querySelector('.navbar')
+        navlist=document.querySelector('.navlist')
+        rightnav=document.querySelector('.rightnav')
+
+        burger.addEventListener('click',()=>{
+            rightnav.classList.toggle('vclass-resp')
+            navlist.classList.toggle('vclass-resp')
+            navbar.classList.toggle('hnav-resp')
+})
+    </script>
+</body>
+</html>
